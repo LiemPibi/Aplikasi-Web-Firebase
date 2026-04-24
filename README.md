@@ -28,15 +28,19 @@ Tambahan metadata:
 - HTML5
 - CSS3
 - Bootstrap 5
-- Firebase Authentication (Web SDK)
-- Firebase Realtime Database (Web SDK)
+- Firebase Authentication (Web SDK v12.12.1)
+- Firebase Realtime Database (Web SDK v12.12.1)
+- Firebase Analytics (Web SDK v12.12.1)
+
+## Konfigurasi Firebase
+Konfigurasi Firebase telah dipisah ke file `firebase-config.js` sesuai format script modul Firebase.
+
+> Jika ingin mengganti project, cukup ubah nilai `firebaseConfig` di `firebase-config.js`.
 
 ## Cara Menjalankan
-1. Buat project Firebase di [Firebase Console](https://console.firebase.google.com/).
-2. Aktifkan **Authentication** (Email/Password).
-3. Aktifkan **Realtime Database**.
-4. Buka file `app.js`, lalu ganti objek `firebaseConfig` dengan konfigurasi project Anda.
-5. Atur aturan database untuk pengujian. Contoh sederhana berbasis user:
+1. Aktifkan **Authentication** (Email/Password) pada project Firebase.
+2. Aktifkan **Realtime Database**.
+3. Atur aturan database untuk pengujian. Contoh sederhana berbasis user:
 
    ```json
    {
@@ -51,15 +55,16 @@ Tambahan metadata:
    }
    ```
 
-6. Jalankan web server lokal, misalnya:
+4. Jalankan web server lokal, misalnya:
 
    ```bash
    python3 -m http.server 5500
    ```
 
-7. Buka browser ke `http://localhost:5500`.
+5. Buka browser ke `http://localhost:5500`.
 
 ## Struktur File
 - `index.html` → UI auth + form CRUD + tabel data.
+- `firebase-config.js` → inisialisasi Firebase app/auth/db/analytics.
 - `styles.css` → styling tambahan.
 - `app.js` → logika Firebase Authentication + Realtime Database.

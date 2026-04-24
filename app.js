@@ -1,35 +1,18 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
 import {
   createUserWithEmailAndPassword,
-  getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
-} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
 import {
-  getDatabase,
   onValue,
   push,
   ref,
   remove,
   set,
   update,
-} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js";
-
-// Ganti dengan konfigurasi Firebase project milik Anda.
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  databaseURL: "https://YOUR_PROJECT_ID-default-rtdb.firebaseio.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getDatabase(app);
+} from "https://www.gstatic.com/firebasejs/12.12.1/firebase-database.js";
+import { auth, db } from "./firebase-config.js";
 
 const registerForm = document.getElementById("registerForm");
 const loginForm = document.getElementById("loginForm");
