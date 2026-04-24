@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "product-manager-bdc83"
+  },
+  "targets": {
+    "product-manager-bdc83": {
+      "hosting": {
+        "web-for-tugas": [
+          "web-for-tugas"
+        ]
+      }
+    }
+  }
+}

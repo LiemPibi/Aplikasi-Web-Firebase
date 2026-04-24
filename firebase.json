@@ -1,0 +1,13 @@
+{
+  "hosting": [
+    {
+      "target": "web-for-tugas",
+      "public": ".",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    }
+  ]
+}

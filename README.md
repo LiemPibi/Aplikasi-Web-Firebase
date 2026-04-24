@@ -33,11 +33,11 @@ Tambahan metadata:
 - Firebase Analytics (Web SDK v12.12.1)
 
 ## Konfigurasi Firebase
-Konfigurasi Firebase telah dipisah ke file `firebase-config.js` sesuai format script modul Firebase.
+Konfigurasi Firebase dipisah ke file `firebase-config.js`.
 
-> Jika ingin mengganti project, cukup ubah nilai `firebaseConfig` di `firebase-config.js`.
+> Jika ingin mengganti project, ubah nilai `firebaseConfig` di `firebase-config.js`.
 
-## Cara Menjalankan
+## Cara Menjalankan Lokal
 1. Aktifkan **Authentication** (Email/Password) pada project Firebase.
 2. Aktifkan **Realtime Database**.
 3. Atur aturan database untuk pengujian. Contoh sederhana berbasis user:
@@ -63,8 +63,26 @@ Konfigurasi Firebase telah dipisah ke file `firebase-config.js` sesuai format sc
 
 5. Buka browser ke `http://localhost:5500`.
 
+## Deploy ke Firebase Hosting
+File konfigurasi hosting sudah ditambahkan:
+- `.firebaserc`
+- `.firebaseignore`
+- `firebase.json` dengan target hosting `web-for-tugas`
+
+Gunakan langkah berikut:
+
+```bash
+npm install -g firebase-tools
+firebase login
+firebase init
+firebase deploy --only hosting:web-for-tugas
+```
+
+Saat `firebase init`, gunakan site hosting: **`web-for-tugas`**.
+
 ## Struktur File
 - `index.html` → UI auth + form CRUD + tabel data.
 - `firebase-config.js` → inisialisasi Firebase app/auth/db/analytics.
 - `styles.css` → styling tambahan.
 - `app.js` → logika Firebase Authentication + Realtime Database.
+- `.firebaserc` + `firebase.json` → konfigurasi Firebase Hosting.
