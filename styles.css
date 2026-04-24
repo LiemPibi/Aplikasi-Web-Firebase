@@ -1,0 +1,25 @@
+body {
+  background: linear-gradient(140deg, #f8f9fa, #e9f2ff);
+  min-height: 100vh;
+}
+
+h1,
+h2 {
+  color: #1f2937;
+}
+
+.card {
+  border-radius: 1rem;
+}
+
+.btn {
+  border-radius: 0.6rem;
+}
+
+.table th {
+  white-space: nowrap;
+}
+
+.action-btn {
+  min-width: 80px;
+}
