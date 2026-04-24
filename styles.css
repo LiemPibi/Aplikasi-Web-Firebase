@@ -27,3 +27,9 @@ h2 {
 #authStatus {
   font-weight: 500;
 }
+
+.page-auth {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}

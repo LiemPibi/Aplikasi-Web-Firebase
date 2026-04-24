@@ -1,46 +1,29 @@
 # Aplikasi CRUD Kontak - Firebase Realtime Database + Authentication
 
 Proyek ini adalah aplikasi web sederhana untuk demonstrasi **BaaS menggunakan Firebase** dengan:
-- **Firebase Authentication** (Register, Login, Logout)
+- **Firebase Authentication** (Sign In/Register, Login, Logout)
 - **Firebase Realtime Database** (CRUD kontak)
+
+## Struktur Halaman (Dipisah)
+1. `signin.html` → halaman daftar akun (sign in/register)
+2. `login.html` → halaman login
+3. `form-kontak.html` → halaman form tambah/update kontak
+4. `daftar-kontak.html` → halaman tabel daftar kontak
 
 ## Fitur
 - Register akun (email + password)
 - Login & logout
-- Create: tambah data kontak baru
-- Read: tampilkan seluruh data kontak secara realtime
-- Update: ubah data kontak yang sudah ada
-- Delete: hapus data kontak
-- Data kontak disimpan per user login (`users/{uid}/contacts`)
-
-## Data yang disimpan (5 field)
-1. `name`
-2. `email`
-3. `phone`
-4. `city`
-5. `note`
-
-Tambahan metadata:
-- `createdAt`
-- `updatedAt`
-
-## Teknologi
-- HTML5
-- CSS3
-- Bootstrap 5
-- Firebase Authentication (Web SDK v12.12.1)
-- Firebase Realtime Database (Web SDK v12.12.1)
-- Firebase Analytics (Web SDK v12.12.1)
+- Create, Read, Update, Delete data kontak
+- Data tersimpan per user di path `users/{uid}/contacts`
+- 5 field data utama: `name`, `email`, `phone`, `city`, `note`
 
 ## Konfigurasi Firebase
-Konfigurasi Firebase dipisah ke file `firebase-config.js`.
-
-> Jika ingin mengganti project, ubah nilai `firebaseConfig` di `firebase-config.js`.
+- `firebase-config.js` berisi konfigurasi dan inisialisasi Firebase App, Auth, Database, dan Analytics.
 
 ## Cara Menjalankan Lokal
-1. Aktifkan **Authentication** (Email/Password) pada project Firebase.
+1. Aktifkan **Authentication** (Email/Password) pada Firebase Console.
 2. Aktifkan **Realtime Database**.
-3. Atur aturan database untuk pengujian. Contoh sederhana berbasis user:
+3. Atur rules database (contoh):
 
    ```json
    {
@@ -55,21 +38,16 @@ Konfigurasi Firebase dipisah ke file `firebase-config.js`.
    }
    ```
 
-4. Jalankan web server lokal, misalnya:
+4. Jalankan server lokal:
 
    ```bash
    python3 -m http.server 5500
    ```
 
-5. Buka browser ke `http://localhost:5500`.
+5. Buka `http://localhost:5500` (otomatis redirect ke `signin.html`).
 
 ## Deploy ke Firebase Hosting
-File konfigurasi hosting sudah ditambahkan:
-- `.firebaserc`
-- `.firebaseignore`
-- `firebase.json` dengan target hosting `web-for-tugas`
-
-Gunakan langkah berikut:
+Konfigurasi hosting sudah disiapkan untuk target `web-for-tugas`.
 
 ```bash
 npm install -g firebase-tools
@@ -78,11 +56,8 @@ firebase init
 firebase deploy --only hosting:web-for-tugas
 ```
 
-Saat `firebase init`, gunakan site hosting: **`web-for-tugas`**.
-
-## Struktur File
-- `index.html` → UI auth + form CRUD + tabel data.
-- `firebase-config.js` → inisialisasi Firebase app/auth/db/analytics.
-- `styles.css` → styling tambahan.
-- `app.js` → logika Firebase Authentication + Realtime Database.
-- `.firebaserc` + `firebase.json` → konfigurasi Firebase Hosting.
+## File Utama
+- `signin.html`, `login.html`, `form-kontak.html`, `daftar-kontak.html`
+- `register.js`, `login.js`, `contact-form.js`, `contact-list.js`, `auth-utils.js`
+- `firebase-config.js`
+- `.firebaserc`, `firebase.json`, `.firebaseignore`
